@@ -1,0 +1,20 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    apt (1.4.2)
+    build-essential (1.0.0)
+    cube (0.4.0)
+      mongodb (>= 0.0.0)
+      nodejs (>= 0.0.0)
+      ufw (>= 0.0.0)
+    firewall (0.8.0)
+    mongodb (0.11.0)
+      apt (>= 0.0.0)
+    nodejs (0.6.11)
+      build-essential (>= 0.0.0)
+    ufw (0.6.1)
+      firewall (>= 0.8)
+
+DEPENDENCIES
+  cube (>= 0)
+
