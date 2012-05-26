@@ -3,10 +3,6 @@ SITE
   specs:
     apt (1.4.2)
     build-essential (1.0.0)
-    cube (0.4.0)
-      mongodb (>= 0.0.0)
-      nodejs (>= 0.0.0)
-      ufw (>= 0.0.0)
     firewall (0.8.0)
     mongodb (0.11.0)
       apt (>= 0.0.0)
@@ -14,6 +10,16 @@ SITE
       build-essential (>= 0.0.0)
     ufw (0.6.1)
       firewall (>= 0.8)
+
+GIT
+  remote: git@github.com:matschaffer/chef-cube.git
+  ref: b35d398
+  sha: b35d398fd2dfe0936620c57f62bf59263d4043e6
+  specs:
+    cube (0.4.0)
+      mongodb (>= 0.0.0)
+      nodejs (>= 0.0.0)
+      ufw (>= 0.0.0)
 
 DEPENDENCIES
   cube (>= 0)
