@@ -1,0 +1,11 @@
+{
+  "id": "cube",
+  "rules": [
+    { "collector-datacenter":
+      { "port": "1080",
+        "source": "172.16.144.1/24" }},
+    { "evaluator-datacenter":
+      { "port": "1081",
+        "source": "172.16.144.1/24" }}
+  ]
+}
