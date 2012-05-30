@@ -8,7 +8,9 @@
     "url": "git://github.com/matschaffer/cube-playground.git"
   },
   "main": "server.js",
-  "dependencies": {"node-static": "0.5.9"},
+  "dependencies": {"node-static": "0.5.9",
+                   "cube": "0.2.3",
+                   "cube-dashboard": "0.0.2"},
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
