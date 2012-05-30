@@ -1,0 +1,17 @@
+{
+  "author": "Mat Schaffer <mat@schaffer.me> (http://matschaffer.com)",
+  "name": "cube-playground",
+  "description": "A set of cookbooks and test server for playing with Cube",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/matschaffer/cube-playground.git"
+  },
+  "main": "server.js",
+  "dependencies": {"node-static": "0.5.9"},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
