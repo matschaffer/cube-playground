@@ -1,3 +1,5 @@
 /cookbooks/*
 /tmp
 /node_modules/*
+
+jmeter.log
