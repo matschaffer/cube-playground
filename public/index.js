@@ -2,7 +2,7 @@ var step = +cubism.option("step", 1e4);
 
 var context = cubism.context()
     .step(step)
-    .size(360);
+    .size(1080);
 
 var cube = context.cube("http://localhost:1081");
 
