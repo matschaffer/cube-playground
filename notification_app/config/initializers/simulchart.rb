@@ -2,11 +2,19 @@ $cube = Cube::Client.new 'localhost', 1180
 
 class CubeSubscriber < ActiveSupport::LogSubscriber
   def sql(e)
-    $cube.send "as_notification",
+    payload_name = e.payload[:name]
+
+    if payload_name
+      type = payload_name.split(' ').reverse.join.underscore
+    else
+      type = "sql_unnamed"
+    end
+
+    $cube.send type,
                e.time,
                e.transaction_id,
-               name: e.name,
-               duration_ms: e.duration
+               duration_ms: e.duration,
+               sql: e.payload[:sql]
   end
 end
 
