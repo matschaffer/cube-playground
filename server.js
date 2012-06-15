@@ -1,9 +1,22 @@
-var static = require('node-static');
+express = require('express');
 
-var file = new(static.Server)('./public');
+var app = express.createServer();
 
-require('http').createServer(function (request, response) {
-    request.addListener('end', function () {
-        file.serve(request, response);
-    });
-}).listen(8080);
+app.configure(function(){
+    app.use(express.methodOverride());
+    app.use(express.bodyParser());
+    app.use(app.router);
+});
+
+app.configure('development', function(){
+    app.use(express.static(__dirname + '/public'));
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+app.configure('production', function(){
+  var oneYear = 31557600000;
+  app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
+  app.use(express.errorHandler());
+});
+
+app.listen(8080);

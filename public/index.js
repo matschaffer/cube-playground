@@ -4,7 +4,7 @@ var context = cubism.context()
     .step(step)
     .size(1440);
 
-var cube = context.cube("http://ms-cube.dyndns.ws:1081");
+var cube = context.cube("http://localhost:1081");
 
 // Add top and bottom axes to display the time.
 d3.select("body").selectAll(".axis")
@@ -34,7 +34,7 @@ d3.select("body").insert("div", ".bottom")
     .metric(function(d) { return d.metric; }));
 
 //
-d3.json("/1.0/types", function(types) {
+d3.json(cube + "/1.0/types", function(types) {
   d3.select("body").insert("div", ".bottom")
       .attr("class", "group")
       .call(function() { this.append("header").text("incoming events (/s)"); })

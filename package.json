@@ -12,7 +12,7 @@
     "cube": "~0.2",
     "cube-dashboard": "~0.0",
     "supervisor": "~0.3",
-    "node-static": "0.5.9"
+    "express": "~2.5.9"
   },
   "devDependencies": {},
   "optionalDependencies": {},
