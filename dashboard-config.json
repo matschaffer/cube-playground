@@ -7,8 +7,7 @@
       "showTotals": true,
       "metrics": [
         { "title": "Requests", "expression": "sum(request)" },
-        { "title": "Logins", "expression": "sum(login)" },
-        { "title": "Randoms", "expression": "sum(random(value)) / sum(random)" }
+        { "title": "Notifications", "expression": "sum(as_notification)" }
       ]
     },
     {
