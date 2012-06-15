@@ -18,13 +18,16 @@ d3.select("body").append("div")
     .attr("class", "rule")
     .call(context.rule());
 
-//
+function queryType(element) {
+  return element.match(/^sql/) || element.match(/^load/) || element === "schema";
+}
+
 d3.json(cube + "/1.0/types", function(types) {
   d3.select("body").insert("div", ".bottom")
       .attr("class", "group")
       .call(function() { this.append("header").text("Median query durations per model"); })
     .selectAll(".horizon")
-      .data(types)
+      .data(types.filter(queryType))
     .enter().append("div")
       .attr("class", "horizon")
     .call(context.horizon()
