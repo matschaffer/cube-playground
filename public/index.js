@@ -2,7 +2,7 @@ var step = +cubism.option("step", 1e4);
 
 var context = cubism.context()
     .step(step)
-    .size(1440);
+    .size(360);
 
 var cube = context.cube("http://localhost:1081");
 
@@ -19,31 +19,16 @@ d3.select("body").append("div")
     .call(context.rule());
 
 //
-d3.select("body").insert("div", ".bottom")
-    .attr("class", "group")
-    .call(function() { this.append("header").text("performance"); })
-  .selectAll(".horizon")
-    .data([
-      {title: "load", metric: cube.metric("sum(cube_compute(ms))").divide(step)},
-      {title: "median latency (ms)", metric: cube.metric("median(cube_compute(ms))")}
-    ])
-  .enter().append("div")
-    .attr("class", "horizon")
-  .call(context.horizon()
-    .title(function(d) { return d.title; })
-    .metric(function(d) { return d.metric; }));
-
-//
 d3.json(cube + "/1.0/types", function(types) {
   d3.select("body").insert("div", ".bottom")
       .attr("class", "group")
-      .call(function() { this.append("header").text("incoming events (/s)"); })
+      .call(function() { this.append("header").text("Median query durations per model"); })
     .selectAll(".horizon")
       .data(types)
     .enter().append("div")
       .attr("class", "horizon")
     .call(context.horizon()
-      .metric(function(d) { return cube.metric("sum(" + d + ")").divide(step / 1e3); }));
+      .metric(function(d) { return cube.metric("median(" + d + "(duration_ms))"); }));
 });
 
 // On mousemove, reposition the chart values to match the rule.
